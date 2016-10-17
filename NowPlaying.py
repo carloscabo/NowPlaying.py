@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import platform
 
 import urllib
 from urllib.request import urlopen
@@ -15,6 +16,13 @@ CONSUMER_SECRET     = config['TwitterAPI']['CONSUMER_SECRET']
 ACCESS_TOKEN_KEY    = config['TwitterAPI']['ACCESS_TOKEN_KEY']
 ACCESS_TOKEN_SECRET = config['TwitterAPI']['ACCESS_TOKEN_SECRET']
 
+json_fn = ''
+if platform.system() == 'Windows':
+    json_fn = os.getenv('APPDATA') + "\Google Play Music Desktop Player\json_store\playback.json"
+else: # MacOS
+    json_fn = os.environ['HOME'] + "/Library/Application Support/Google Play Music Desktop Player/json_store/playback.json"
+print(json_fn)
+
 def tweetWithImage( filepath, text ):
     api = TwitterAPI(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
     print('Tw:'+filepath)
@@ -25,7 +33,6 @@ def tweetWithImage( filepath, text ):
     print( 'Twitter status:' + str(r.status_code) )
 
 # json_fn = "/Users/carloscabo/Library/Application Support/Google Play Music Desktop Player/json_store/playback.json"
-json_fn = os.environ['HOME'] + "/Library/Application Support/Google Play Music Desktop Player/json_store/playback.json"
 tweet_tpl = "#NowPlaying «{{__ALBUM__}}» by {{__ARTIST__}} "
 
 with open( json_fn ) as data_file:

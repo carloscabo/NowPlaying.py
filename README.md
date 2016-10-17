@@ -21,6 +21,10 @@ If you want to add extra comments / tags to the tweet pass them as string parame
 python3 NowPlaying.py 'This is the best #pop album ever :)'
 ```
 
+# Documentation
+
+<https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-/blob/master/docs/PlaybackAPI.md>
+
 # TO-DO
 
 1. Windows version
