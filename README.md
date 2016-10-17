@@ -9,7 +9,7 @@ Obviously you need to have installed the <https://www.googleplaymusicdesktopplay
 
 [Create API Keys for your  yout twitter account](https://dev.twitter.com/oauth/overview/application-owner-access-tokens), add then to a file called `config.yml` in the same place the `NowPlaying.py` script is located. You can use the `config.sample.yml` file as template.
 
-To tweet the curren album with its cover execute in your terminal:
+To tweet the current album with its cover execute in your terminal:
 
 ```
 python3 NowPlaying.py
