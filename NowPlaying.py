@@ -43,4 +43,4 @@ with open( json_fn ) as data_file:
         print( 'No params' )
 
     print(tweet)
-    # tweetWithImage( './cover.jpg', tweet )
+    tweetWithImage( './cover.jpg', tweet )
