@@ -21,4 +21,8 @@ If you want to add extra comments / tags to the tweet pass them as string parame
 python3 NowPlaying.py 'This is the bes #pop album ever :)'
 ```
 
+# TO-DO
+
+1. Windows version
+
 Enjoy ;)

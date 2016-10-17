@@ -24,7 +24,8 @@ def tweetWithImage( filepath, text ):
     r = api.request('statuses/update_with_media', {'status': text }, {'media[]':img_data})
     print( 'Twitter status:' + str(r.status_code) )
 
-json_fn = "/Users/carloscabo/Library/Application Support/Google Play Music Desktop Player/json_store/playback.json"
+# json_fn = "/Users/carloscabo/Library/Application Support/Google Play Music Desktop Player/json_store/playback.json"
+json_fn = os.environ['HOME'] + "/Library/Application Support/Google Play Music Desktop Player/json_store/playback.json"
 tweet_tpl = "#NowPlaying «{{__ALBUM__}}» by {{__ARTIST__}} "
 
 with open( json_fn ) as data_file:
@@ -42,4 +43,4 @@ with open( json_fn ) as data_file:
         print( 'No params' )
 
     print(tweet)
-    tweetWithImage( './cover.jpg', tweet )
+    # tweetWithImage( './cover.jpg', tweet )
