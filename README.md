@@ -18,7 +18,7 @@ python3 NowPlaying.py
 If you want to add extra comments / tags to the tweet pass them as string parameter:
 
 ```
-python3 NowPlaying.py 'This is the bes #pop album ever :)'
+python3 NowPlaying.py 'This is the best #pop album ever :)'
 ```
 
 # TO-DO
