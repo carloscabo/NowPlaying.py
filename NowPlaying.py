@@ -35,7 +35,7 @@ def tweetWithImage( filepath, text ):
 # json_fn = "/Users/carloscabo/Library/Application Support/Google Play Music Desktop Player/json_store/playback.json"
 tweet_tpl = "#NowPlaying «{{__ALBUM__}}» by {{__ARTIST__}} "
 
-with open( json_fn ) as data_file:
+with open( json_fn, encoding='utf-8' ) as data_file:
     data = json.load(data_file)
     album = data['song']['album']
     artist = data['song']['artist']
@@ -50,4 +50,4 @@ with open( json_fn ) as data_file:
         print( 'No params' )
 
     print(tweet)
-    tweetWithImage( './cover.jpg', tweet )
+    # tweetWithImage( './cover.jpg', tweet )
