@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+
+"""NowPlaying.py: script that tweets #NowPlaying info taken from Google Play Music Desktop Player, including album cover."""
+__author__  = "Carlos Cabo"
+__license__ = "MIT"
+__version__ = "1.0.3"
+
 import os
 import sys
 import json
@@ -41,6 +48,10 @@ with open( json_fn, encoding='utf-8' ) as data_file:
     artist = data['song']['artist']
     cover_url = data['song']['albumArt']
 
+    if 'default_album_med.png' in cover_url:
+        print('HAS NO COVER!!!')
+        sys.exit()
+
     urlretrieve( cover_url, './cover.jpg' )
 
     tweet = tweet_tpl.replace('{{__ARTIST__}}', artist).replace('{{__ALBUM__}}', album)
@@ -50,4 +61,4 @@ with open( json_fn, encoding='utf-8' ) as data_file:
         print( 'No params' )
 
     print(tweet)
-    # tweetWithImage( './cover.jpg', tweet )
+    tweetWithImage( './cover.jpg', tweet )

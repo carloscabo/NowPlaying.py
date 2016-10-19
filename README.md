@@ -27,6 +27,6 @@ python3 NowPlaying.py 'This is the best #pop album ever :)'
 
 # TO-DO
 
-1. Windows version
+1. Unix version
 
 Enjoy ;)
