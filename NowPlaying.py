@@ -9,6 +9,7 @@ import os
 import sys
 import json
 import platform
+import argparse
 
 import urllib
 from urllib.request import urlopen
@@ -43,10 +44,13 @@ def tweetWithImage( filepath, text ):
 tweet_tpl = "#NowPlaying «{{__ALBUM__}}» by {{__ARTIST__}} "
 
 with open( json_fn, encoding='utf-8' ) as data_file:
+
     data = json.load(data_file)
     album = data['song']['album']
     artist = data['song']['artist']
     cover_url = data['song']['albumArt']
+    print( data )
+    print( "\n" )
 
     if 'default_album_med.png' in cover_url:
         print('HAS NO COVER!!!')
@@ -54,11 +58,15 @@ with open( json_fn, encoding='utf-8' ) as data_file:
 
     urlretrieve( cover_url, './cover.jpg' )
 
-    tweet = tweet_tpl.replace('{{__ARTIST__}}', artist).replace('{{__ALBUM__}}', album)
-    try:
-        tweet += sys.argv[1]
-    except IndexError:
-        print( 'No params' )
+    if len(sys.argv) == 2:
+        if sys.argv[1].lower() == '--v':
+            artist = 'Various Artists'
+        else:
+            tweet_tpl += sys.argv[1]
 
+    if len(sys.argv) == 3:
+        tweet_tpl += sys.argv[2]
+
+    tweet = tweet_tpl.replace('{{__ARTIST__}}', artist).replace('{{__ALBUM__}}', album)
     print(tweet)
     tweetWithImage( './cover.jpg', tweet )
