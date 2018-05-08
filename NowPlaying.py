@@ -59,7 +59,7 @@ with open( json_fn, encoding='utf-8' ) as data_file:
     urlretrieve( cover_url, './cover.jpg' )
 
     if len(sys.argv) == 2:
-        if sys.argv[1].lower() == '--v':
+        if sys.argv[1].lower() == '--v' or sys.argv[1].lower() == '--va':
             artist = 'Various Artists'
         else:
             tweet_tpl += sys.argv[1]
